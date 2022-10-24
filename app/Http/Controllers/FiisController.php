@@ -21,7 +21,11 @@ class FiisController extends Controller
             $data = Fiis::orderBy('updated_at', 'desc')->first()->updated_at;
         } else {
             $fiis = Fiis::all();
-            $data = Fiis::orderBy('updated_at', 'desc')->first()->updated_at;
+            if (Fiis::count() > 0) {
+                $data = Fiis::orderBy('updated_at', 'desc')->first()->updated_at;
+            } else {
+                $data = null;
+            }
         }
 
         return view('fiis.index', ['fiis' => $fiis], ['data' => $data]);
