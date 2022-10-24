@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Fiis;
-use Illuminate\Http\Request;
 
 class FiisController extends Controller
 {
