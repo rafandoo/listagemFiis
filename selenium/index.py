@@ -33,10 +33,11 @@ for fii in fiis:
     conn = c.getConn()
     cursor = c.getCursor(conn)
     
-    if c.isset(cursor, 'fii', (fii,)):
-        c.update_data(conn, cursor, 'fii', data)
+    if c.isset(cursor, 'fiis', (fii,)):
+        data = (data[2], data[3], data[4], data[5], fii)
+        c.update_data(conn, cursor, 'fiis', data)
     else:
-        c.insert_data(conn, cursor, 'fii', data)
+        c.insert_data(conn, cursor, 'fiis', data)
         
 c.close_cursor(cursor)
 c.close_connection(conn)

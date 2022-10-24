@@ -19,9 +19,12 @@ class FiisController extends Controller
             $fiis = Fiis::where('nome', 'like', "%{$filtro}%")
             ->orwhere('codigo', 'like', "%{$filtro}%")
             ->get();
+            $data = Fiis::orderBy('updated_at', 'desc')->first()->updated_at;
         } else {
             $fiis = Fiis::all();
+            $data = Fiis::orderBy('updated_at', 'desc')->first()->updated_at;
         }
-        return view('fiis.index', ['fiis' => $fiis]);
+
+        return view('fiis.index', ['fiis' => $fiis], ['data' => $data]);
     }
 }

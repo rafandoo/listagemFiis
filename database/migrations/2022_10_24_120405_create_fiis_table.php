@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('nome');
             $table->string('codigo');
             $table->string('v_atual');
-            $table->double('v_min');
-            $table->double('v_max');
+            $table->string('v_min');
+            $table->string('v_max');
             $table->string('valorizacao');
         });
     }
