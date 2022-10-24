@@ -35,3 +35,4 @@ def isset(cursor, table, data):
         return True
     else:
         return False
+    
